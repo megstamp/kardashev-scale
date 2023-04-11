@@ -19,17 +19,19 @@ h1, h2, h3 {
     font-family: 'Monoton', cursive;
     font-weight: 800;
 }
+    /*font size will be set to 35px when the viewport width is less than 400 px, and it will increase by 1 px
+    for every 100 px of viewport width */
 
 h1 {
-    font-size: 80px;
+    font-size: clamp(35px, 4vw, 80px);
 }
 
 h2 {
-    font-size: 40px;
+    font-size: clamp(30px, 4vw, 50px);
 }
 
 p {
-    font-size: 25px;
+    font-size: clamp (17px, 4vw, 23px);
     font-family: 'Space Mono', monospace;
 }
 
@@ -73,6 +75,20 @@ section.container figure img:hover {
     transform: scale(1.1);
     filter: drop-shadow(10px 10px 30px rgba(255, 255, 255, 0.905));
 }   
+
+/* changes below*/
+@media (max-width: 768px) {
+    section.container {
+        flex-direction: column;
+    }
+    section.container div {
+        width: 100%;
+        margin-bottom: 130px;
+    }
+    section.container figure img:hover {
+        transform: scale(1)
+    }
+}
 
 section.container figure summary {
     cursor: pointer;
